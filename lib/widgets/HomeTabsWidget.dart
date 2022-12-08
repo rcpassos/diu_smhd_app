@@ -1,4 +1,5 @@
-
+import 'package:diu_smhd_app/widgets/ChartsWidget.dart';
+import 'package:diu_smhd_app/widgets/LastDataWidget.dart';
 import 'package:flutter/material.dart';
 
 class HomeTabsWidget extends StatefulWidget {
@@ -8,7 +9,8 @@ class HomeTabsWidget extends StatefulWidget {
   State<HomeTabsWidget> createState() => _HomeTabsWidgetState();
 }
 
-class _HomeTabsWidgetState extends State<HomeTabsWidget> with SingleTickerProviderStateMixin {
+class _HomeTabsWidgetState extends State<HomeTabsWidget>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -41,9 +43,9 @@ class _HomeTabsWidgetState extends State<HomeTabsWidget> with SingleTickerProvid
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [
-                Container(child: Center(child: Text('people'))),
-                Text('Person')
+              children: const [
+                LastDataWidget(),
+                ChartsWidget(),
               ],
             ),
           ),
