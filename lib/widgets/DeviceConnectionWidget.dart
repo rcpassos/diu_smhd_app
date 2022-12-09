@@ -22,7 +22,14 @@ class _DeviceConnectionWidgetState extends State<DeviceConnectionWidget> {
         });
   }
 
-  void _onConnectDeviceButtonPressed() {}
+  void _onConnectDeviceButtonPressed() {
+    // https://www.appsdeveloperblog.com/alert-dialog-with-a-text-field-in-flutter/
+    if (_deviceId != null) {
+      // remove
+    } else {
+      // add
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +42,19 @@ class _DeviceConnectionWidgetState extends State<DeviceConnectionWidget> {
             _deviceId != null
                 ? "Dispositivo ${_deviceId} está conectado"
                 : "Dispositivo não encontrado"),
-        ElevatedButton(
+        Container(
+          margin: const EdgeInsets.all(20.0),
+          width: double.infinity,
+          child: FloatingActionButton.extended(
+            label: Text(_deviceId != null ? 'REMOVER' : "ADICIONAR"),
+            backgroundColor: Colors.black,
+            icon: Icon(
+              _deviceId != null ? Icons.delete_outline : Icons.add,
+              size: 24.0,
+            ),
             onPressed: _onConnectDeviceButtonPressed,
-            child: Text(_deviceId != null ? 'Remover' : "Adicionar"))
+          ),
+        )
       ],
     );
   }

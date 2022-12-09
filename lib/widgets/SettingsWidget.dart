@@ -29,6 +29,11 @@ class SettingsWidget extends StatelessWidget {
           context: context,
           tiles: [
             ListTile(
+              title: Text(
+                  style: Theme.of(context).textTheme.headline6,
+                  'Definições da Aplicação'),
+            ),
+            ListTile(
               leading: const Icon(
                 Icons.help_outline,
                 size: 20.0,
