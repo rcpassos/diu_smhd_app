@@ -10,19 +10,18 @@ class DeviceConnectionWidget extends StatefulWidget {
 
 class _DeviceConnectionWidgetState extends State<DeviceConnectionWidget> {
   String? _deviceId;
-  TextEditingController _textFieldController = TextEditingController();
+  final TextEditingController _textFieldController = TextEditingController();
   String _newDeviceId = "";
 
   @override
   void initState() {
     super.initState();
 
-    getDeviceId().then((value) =>
-    {
-      setState(() {
-        _deviceId = value;
-      })
-    });
+    getDeviceId().then((value) => {
+          setState(() {
+            _deviceId = value;
+          })
+        });
   }
 
   Future<void> _displayRemoveDeviceConfirmationDialog(
@@ -149,10 +148,7 @@ class _DeviceConnectionWidgetState extends State<DeviceConnectionWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-            style: Theme
-                .of(context)
-                .textTheme
-                .headline6,
+            style: Theme.of(context).textTheme.headline6,
             _deviceId != null
                 ? "Dispositivo ${_deviceId} está conectado"
                 : "Dispositivo não encontrado"),
